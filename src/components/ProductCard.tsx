@@ -37,7 +37,7 @@ export default function ProductCard({ product, index, onAddToCart }: ProductCard
 
   return (
     <div
-      className="bg-white rounded-xl overflow-hidden shadow-sm border border-border transition-all hover:-translate-y-2 hover:shadow-lg animate-card-in"
+      className="group bg-white rounded-xl overflow-hidden shadow-sm border border-border transition-all hover:-translate-y-2 hover:shadow-lg animate-card-in"
       style={{ animationDelay: `${index * 0.05}s` }}
     >
       {/* Image */}
@@ -59,18 +59,22 @@ export default function ProductCard({ product, index, onAddToCart }: ProductCard
 
       {/* Info */}
       <div className="p-5">
-        <span className={`inline-block text-[0.72rem] font-semibold px-2.5 py-0.5 rounded-full mb-2.5 uppercase tracking-wide ${tagStyle}`}>
-          {tagLabel}
-        </span>
+        <div className="flex items-center gap-2 mb-2.5 flex-wrap">
+          <span className={`inline-block text-[0.72rem] font-semibold px-2.5 py-0.5 rounded-full uppercase tracking-wide ${tagStyle}`}>
+            {tagLabel}
+          </span>
+          <span className="inline-block text-[0.7rem] font-medium px-2.5 py-0.5 rounded-full bg-muted text-muted-foreground">
+            📐 {product.size}
+          </span>
+        </div>
         <h3 className="font-display text-base font-semibold text-dark leading-snug mb-2">{product.name}</h3>
         <p className="text-[0.83rem] text-muted-foreground leading-relaxed mb-3">{product.desc}</p>
-        <div className="mb-4">
-          <span className="text-xs text-text-light font-medium">📐 {product.size}</span>
-        </div>
         <div className="flex items-center justify-between gap-2 flex-wrap">
-          <span className="text-lg font-bold text-primary-dark font-display">{formatPrice(product.price)}</span>
+          <span className="text-xl font-bold text-primary-dark" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+            {formatPrice(product.price)}
+          </span>
           <button
-            className="flex items-center gap-1.5 bg-primary text-primary-foreground text-[0.82rem] font-semibold px-4 py-2 rounded-full transition-all hover:bg-primary-dark hover:scale-[1.04] flex-shrink-0"
+            className="flex items-center gap-1.5 bg-primary text-primary-foreground text-[0.82rem] font-semibold px-4 py-2 rounded-full transition-all hover:bg-primary-dark hover:scale-[1.04] flex-shrink-0 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 duration-300"
             onClick={() => onAddToCart(product.name, product.price)}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 5v14M5 12h14"/></svg>
