@@ -23,7 +23,7 @@ export default function WhySection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {whyCards.map(card => (
             <div key={card.title} className="text-center p-9 rounded-xl border-[1.5px] border-border transition-all hover:-translate-y-1 hover:shadow">
-              <img src={card.icon} alt={card.title} className="w-16 h-16 mx-auto mb-4 object-contain" loading="lazy" width={64} height={64} />
+              <img src={card.icon} alt={card.title} className="w-28 h-28 mx-auto mb-5 object-contain" loading="lazy" width={112} height={112} />
               <h3 className="font-display text-base font-semibold text-dark mb-2">{card.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{card.desc}</p>
             </div>
