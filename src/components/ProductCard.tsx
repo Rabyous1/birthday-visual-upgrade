@@ -59,16 +59,16 @@ export default function ProductCard({ product, index, onAddToCart }: ProductCard
 
       {/* Info */}
       <div className="p-5">
-        <div className="flex items-center gap-2 mb-2.5 flex-wrap">
+        <div className="mb-2.5">
           <span className={`inline-block text-[0.72rem] font-semibold px-2.5 py-0.5 rounded-full uppercase tracking-wide ${tagStyle}`}>
             {tagLabel}
           </span>
-          <span className="inline-block text-[0.7rem] font-medium px-2.5 py-0.5 rounded-full bg-muted text-muted-foreground">
-            📐 {product.size}
-          </span>
         </div>
         <h3 className="font-display text-base font-semibold text-dark leading-snug mb-2">{product.name}</h3>
-        <p className="text-[0.83rem] text-muted-foreground leading-relaxed mb-3">{product.desc}</p>
+        <p className="text-[0.83rem] text-muted-foreground leading-relaxed mb-2">{product.desc}</p>
+        <span className="inline-block text-[0.7rem] font-medium px-2.5 py-1 rounded-full bg-muted text-muted-foreground mb-3">
+          📐 {product.size}
+        </span>
         <div className="flex items-center justify-between gap-2 flex-wrap">
           <span className="text-xl font-bold text-primary-dark" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
             {formatPrice(product.price)}
